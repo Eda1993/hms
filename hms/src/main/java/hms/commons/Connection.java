@@ -7,11 +7,13 @@ public class Connection {
 	private static java.sql.Connection connection = null;
 
 	private Connection() {
+		
 		String url = "jdbc:mysql://localhost:3306/";
 		String database = "hotelmanagment";
 		String userName = "root";
 		String password = "mysql123";
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
 			connection = getConnection(url + database, userName, password);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -25,7 +27,7 @@ public class Connection {
 		return instance;
 	}
 	
-	public static java.sql.Connection connect() {
+	public java.sql.Connection connect() {
 		return connection;
 	}
 }

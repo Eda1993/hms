@@ -123,4 +123,13 @@ public class User {
 	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", lastname=" + lastname + ", username=" + username + ", password="
+				+ password + ", email=" + email + ", phoneNumber=" + phoneNumber + ", birthday=" + birthday
+				+ ", gender=" + gender + ", createdAt=" + createdAt + ", lastLogin=" + lastLogin + "]";
+	}
+	
+	
 }

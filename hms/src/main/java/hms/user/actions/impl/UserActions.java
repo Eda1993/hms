@@ -26,7 +26,7 @@ public class UserActions extends AbstractTable implements IUserActions {
 			String username = resultSet.getString("USERNAME");
 			String password = null;
 			String email = resultSet.getString("EMAIL");
-			String phoneNumber = resultSet.getString("PHONENUMBER");
+			String phoneNumber = resultSet.getString("PHONE_NUMBER");
 			Date birthday = resultSet.getDate("BIRTHDAY");
 			char gender = (char) resultSet.getInt("GENDER");
 			

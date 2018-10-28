@@ -1,11 +1,9 @@
 package hms.commons;
 
-import static hms.commons.Connection.connect;
-
 public abstract class AbstractTable {
-	private java.sql.Connection connection = connect();
+	private Connection connection = Connection.getInstance();
 
 	protected java.sql.Connection getConnection() {
-		return connection;
+		return connection.connect();
 	}
 }
