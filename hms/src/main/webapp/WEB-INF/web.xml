@@ -10,8 +10,28 @@
   	<description></description>
   	<servlet-class>hms.user.controllers.UserServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LoginController</servlet-name>
+  	<display-name>LoginController</display-name>
+  	<description></description>
+  	<servlet-class>hms.user.controllers.LoginController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UserRegistration</servlet-name>
+  	<display-name>UserRegistration</display-name>
+  	<description></description>
+  	<servlet-class>hms.user.controllers.UserRegistration</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>UserServlet</servlet-name>
   	<url-pattern>/user</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginController</servlet-name>
+  	<url-pattern>/LoginController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UserRegistration</servlet-name>
+  	<url-pattern>/UserRegistration</url-pattern>
   </servlet-mapping>
 </web-app>

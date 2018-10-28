@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import hms.user.actions.IUserActions;
 import hms.user.actions.impl.UserActions;
 
+@WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +27,7 @@ public class UserServlet extends HttpServlet {
 			request.setAttribute("users", userActions.getAllUsers());
 			request.setAttribute("totalUsers", userActions.getAllUsers().size());
 			
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("welcomeAdmin.jsp");
 			rd.forward(request, response);
 
 		} catch (SQLException e) {
