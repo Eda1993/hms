@@ -35,7 +35,7 @@
 				</div><br>
 
 				<div class="row">
-					<input type="email" name="email" placeholder="Email" />
+					<input type="text" name="email" placeholder="Email" />
 				</div><br>
 
 				<div class="row">

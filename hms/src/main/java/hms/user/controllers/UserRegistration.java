@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import hms.user.actions.impl.UserInsert;
 import hms.user.models.User;
@@ -23,7 +24,7 @@ public class UserRegistration extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 
 		User user = new User();
 
@@ -38,6 +39,10 @@ public class UserRegistration extends HttpServlet {
 
 		UserInsert ui = new UserInsert();
 		ui.insertUser(user);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("username", user.getUsername());
+		
 		response.sendRedirect("welcomeUser.jsp");
 	}
 
