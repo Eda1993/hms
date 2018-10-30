@@ -18,7 +18,6 @@ public class UserInsert extends AbstractTable {
 
 			Statement statement = getConnection().prepareStatement(sql);
 			statement.executeUpdate(sql);
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

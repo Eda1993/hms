@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/reg.css" />
+
 <script>
 	function myFunction() {
 		alert("Register Succesfull");
@@ -10,7 +12,7 @@
 
 	<h1>Join Us</h1>
 
-	<div id="wrapper" align="center" >
+	<div id="wrapper" align="center">
 		<form action="UserRegistration" method="post">
 
 			<fieldset>
@@ -20,39 +22,48 @@
 
 				<div class="row">
 					<input type="text" name="name" placeholder="Name" />
-				</div><br>
+				</div>
+				<br>
 
 				<div class="row">
 					<input type="text" name="lastname" placeholder="Lastname" />
-				</div><br>
+				</div>
+				<br>
 
 				<div class="row">
 					<input type="text" name="username" placeholder="Username" />
-				</div><br>
+				</div>
+				<br>
 
 				<div class="row">
 					<input type="password" name="password" placeholder="Password" />
-				</div><br>
+				</div>
+				<br>
 
 				<div class="row">
 					<input type="text" name="email" placeholder="Email" />
-				</div><br>
+				</div>
+				<br>
 
 				<div class="row">
 					<input type="text" name="phoneNumber" placeholder="PhoneNumber" />
-				</div><br>
+				</div>
+				<br>
 
 				<div class="row">
 					<input type="date" name="birthday" placeholder="Birthday" />
-				</div><br>
+				</div>
+				<br>
 
 				<div class="row">
 					<input type="text" name="gender" placeholder="Gender" />
-				</div><br>
+				</div>
+				<br>
 
 				<div class="row">
 					<button type="submit" value="Login" onclick="myFunction()">Register</button>
-				</div><br>
+				</div>
+				<br>
 			</fieldset>
 
 		</form>

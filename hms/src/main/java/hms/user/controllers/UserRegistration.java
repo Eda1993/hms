@@ -2,6 +2,7 @@ package hms.user.controllers;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,11 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import hms.user.actions.impl.UserInsert;
+import hms.user.actions.IUserActions;
+import hms.user.actions.impl.UserActions;
 import hms.user.models.User;
 
 public class UserRegistration extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	IUserActions actions = new UserActions();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -37,8 +41,12 @@ public class UserRegistration extends HttpServlet {
 		user.setBirthday(Date.valueOf(request.getParameter("birthday")));
 		user.setGender(request.getParameter("gender").charAt(0));
 
-		UserInsert ui = new UserInsert();
-		ui.insertUser(user);
+		try {
+			actions.insertUser(user);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("username", user.getUsername());

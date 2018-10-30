@@ -4,12 +4,14 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false"%>
 </head>
 <body>
+
+	<jsp:include page="afterLogin.jsp" />
 	<h2>Welcome, ${username}</h2>
-	<h1>${totalUsers}</h1>
-	
+
+
 	<table border="1">
 
 		<tr>
@@ -23,9 +25,8 @@
 			<th>Gender</th>
 		</tr>
 
-
 		<c:forEach var="i" items="${users}">
-			 <tr>
+			<tr>
 				<td>${i.name}</td>
 				<td>${i.lastname}</td>
 				<td>${i.username}</td>
@@ -36,7 +37,22 @@
 				<td>${i.gender}</td>
 			</tr>
 		</c:forEach>
-		
-	</table>	
+
+	</table>
+	<pre></pre>
+	<pre>
+	<div>
+		<form action="RoomInfo">
+			<input type="submit" value="View Rooms">
+		</form>
+	</div>
+
+	<div>
+		<form action="Requests">
+			<input type="submit" value="View Requests">
+		</form>
+
+	</div>
+	</pre>
 </body>
 </html>

@@ -17,5 +17,17 @@
 
 	<h1>Welcome, ${username}</h1>
 
+	<div>
+		<form action="roomAlloc.jsp">
+			<input type="submit" value="Alloc Room">
+		</form>
+	</div>
+
+	<div>
+		<form action="response.jsp">
+			<input type="submit" value="See Response">
+		</form>
+	</div>
+
 </body>
 </html>

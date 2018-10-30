@@ -1,5 +1,8 @@
 package hms.user.controllers;
 
+import static hms.commons.UserType.ADMIN;
+import static hms.commons.UserType.USER;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -10,7 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import hms.commons.UserType;
+import hms.user.actions.IUserActions;
 import hms.user.actions.impl.AdminController;
+import hms.user.actions.impl.UserActions;
 import hms.user.actions.impl.UserController;
 import hms.user.models.User;
 
@@ -19,6 +25,8 @@ import hms.user.models.User;
  */
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	IUserActions actions = new UserActions();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -33,52 +41,33 @@ public class LoginController extends HttpServlet {
 		doGet(request, response);
 
 		PrintWriter out = response.getWriter();
-		User user = new User();
 
 		String type = request.getParameter("loginSelector");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
 
-		if (type.equals("admin")) {
-			user.setUsername(request.getParameter("username"));
-			user.setPassword(request.getParameter("password"));
 
-			AdminController ac = new AdminController();
-			try {
-				String s1 = ac.login(user);
-				if (s1.equals("success")) {
-					HttpSession session = request.getSession();
-					session.setAttribute("username", user.getUsername());
+		try {
 
+			User user = actions.login(username, password, type);
+
+			if (user != null) {
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
+				
+				if (type.equals(ADMIN.toString())) {
 					response.sendRedirect("UserServlet");
-
 				} else {
-					out.println("Kredencialet jane gabim");
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else if (type.equals("user")) {
-
-			user.setUsername(request.getParameter("username"));
-
-			user.setPassword(request.getParameter("password"));
-
-			UserController uc = new UserController();
-			try {
-				String s1 = uc.login(user);
-				if (s1.equals("success")) {
-					HttpSession session = request.getSession();
-					session.setAttribute("username", user.getUsername());
 					response.sendRedirect("welcomeUser.jsp");
-				} else {
-					out.println("Kredencialet jane gabim");
 				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 
+			} else {
+				out.println("Kredencialet jane gabim");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
