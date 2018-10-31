@@ -11,20 +11,17 @@
 <body>
 	<jsp:include page="afterLogin.jsp" />
 
-	<%
-		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-	%>
 
-	<h1>Welcome, ${username}</h1>
+	<h1>Welcome, ${user.name}</h1>
 
 	<div>
-		<form action="roomAlloc.jsp">
+		<form action="roomAlloc.jsp" method="post">
 			<input type="submit" value="Alloc Room">
 		</form>
 	</div>
 
 	<div>
-		<form action="response.jsp">
+		<form action="response.jsp" method="post">
 			<input type="submit" value="See Response">
 		</form>
 	</div>

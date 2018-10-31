@@ -28,6 +28,24 @@
   	<description></description>
   	<servlet-class>hms.user.actions.impl.UserController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AdminController</servlet-name>
+  	<display-name>AdminController</display-name>
+  	<description></description>
+  	<servlet-class>hms.admin.controllers.AdminController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddRoom</servlet-name>
+  	<display-name>AddRoom</display-name>
+  	<description></description>
+  	<servlet-class>hms.admin.controllers.AddRoom</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EditRoom</servlet-name>
+  	<display-name>EditRoom</display-name>
+  	<description></description>
+  	<servlet-class>hms.admin.controllers.EditRoom</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>UserServlet</servlet-name>
   	<url-pattern>/user</url-pattern>
@@ -43,5 +61,17 @@
   <servlet-mapping>
   	<servlet-name>UserController</servlet-name>
   	<url-pattern>/UserController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminController</servlet-name>
+  	<url-pattern>/AdminController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddRoom</servlet-name>
+  	<url-pattern>/AddRoom</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EditRoom</servlet-name>
+  	<url-pattern>/EditRoom</url-pattern>
   </servlet-mapping>
 </web-app>

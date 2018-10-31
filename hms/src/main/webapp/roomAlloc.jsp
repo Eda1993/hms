@@ -19,15 +19,15 @@ fieldset {
 				<form action="demo_form.asp">
 				
 					<input type="date" name="checkIn"> 
-					<input type="checkbox" name="Air condition" value="Air condition">Air condition 
-					<input type="checkbox" name="Internet" value="Internet">Internet
+					<input type="checkbox" name="airconditioner" value="Air conditioner">Air condition 
+					<input type="checkbox" name="internet" value="Internet">Internet
 					<br> <br>
 
 
 					<p>Check-out</p>
 					<form action="demo_form.asp">
 						<input type="date" name="checkOut"> <br> <br>
-						<br> <select id="1">
+						<br> <select id="1" name="AdultSelector">
 
 							<option value="1 adult" selected="true">1 adult</option>
 							<option value="2 adult">2 adult</option>
@@ -37,7 +37,7 @@ fieldset {
 							<option value="6 adult">6 adult</option>
 
 						</select> <br>
-						<br> <select>
+						<br> <select name="ChildrenSelector">
 							<option value="1 child" selected="true">1 child</option>
 							<option value="2 child">2 child</option>
 							<option value="3 child">3 child</option>
@@ -46,7 +46,7 @@ fieldset {
 							<option value="6 child">6 child</option>
 
 
-						</select> <select>
+						</select> <select name="RoomSelector">
 							<option value="1  room" selected="true">1 room</option>
 							<option value="2 room">2 room</option>
 							<option value="3 room">3 room</option>

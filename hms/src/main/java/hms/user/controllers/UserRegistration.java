@@ -16,7 +16,7 @@ import hms.user.models.User;
 
 public class UserRegistration extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	IUserActions actions = new UserActions();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,7 +28,7 @@ public class UserRegistration extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
+		// doGet(request, response);
 
 		User user = new User();
 
@@ -47,10 +47,10 @@ public class UserRegistration extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		HttpSession session = request.getSession();
 		session.setAttribute("username", user.getUsername());
-		
+
 		response.sendRedirect("welcomeUser.jsp");
 	}
 

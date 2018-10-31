@@ -9,7 +9,7 @@
 <body>
 
 	<jsp:include page="afterLogin.jsp" />
-	<h2>Welcome, ${username}</h2>
+	<h2>Welcome, ${user.name}</h2>
 
 
 	<table border="1">
@@ -41,18 +41,18 @@
 	</table>
 	<pre></pre>
 	<pre>
-	<div>
-		<form action="RoomInfo">
-			<input type="submit" value="View Rooms">
-		</form>
-	</div>
-
-	<div>
-		<form action="Requests">
-			<input type="submit" value="View Requests">
-		</form>
-
-	</div>
+		<div >
+			<form action="AdminController">
+				<input type="submit" value="View Rooms">
+			</form>
+		</div>
+	
+		<div>
+			<form action="Requests">
+				<input type="submit" value="View Requests">
+			</form>
+	
+		</div>
 	</pre>
 </body>
 </html>

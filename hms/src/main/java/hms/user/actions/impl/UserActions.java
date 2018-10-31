@@ -19,8 +19,8 @@ public class UserActions extends AbstractTable implements IUserActions {
 	@Override
 	public List<User> getAllUsers() throws SQLException {
 		List<User> users = new ArrayList<>();
-		
-		String sql ="select * from user WHERE IS_ADMIN = 0";
+
+		String sql = "select * from user WHERE IS_ADMIN = 0";
 		Statement statement = getPreparedStatement(sql);
 		ResultSet resultSet = statement.executeQuery(sql);
 		while (resultSet.next()) {
@@ -34,9 +34,9 @@ public class UserActions extends AbstractTable implements IUserActions {
 	public int insertUser(User user) throws SQLException {
 		String sql = "insert into user (NAME, LASTNAME, USERNAME, PASSWORD, EMAIL, PHONE_NUMBER, BIRTHDAY, GENDER, CREATED_AT, IS_ADMIN, PENDING_REQUEST) values "
 				+ "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		
+
 		PreparedStatement statement = getPreparedStatement(sql);
-		
+
 		statement.setString(1, user.getName());
 		statement.setString(2, user.getLastname());
 		statement.setString(3, user.getUsername());
@@ -48,34 +48,32 @@ public class UserActions extends AbstractTable implements IUserActions {
 		statement.setTimestamp(9, java.sql.Timestamp.from(java.time.Instant.now()));
 		statement.setInt(10, 0);
 		statement.setInt(11, 0);
-		
+
 		return statement.executeUpdate();
 	}
 
 	@Override
 	public User login(String userName, String password, String type) throws SQLException {
-		String sql = "select * from user "
-				+ "where userName = ? "
-				+ "and password = ? ";
-		
+		String sql = "select * from user " + "where userName = ? " + "and password = ? ";
+
 		if (type.equals(ADMIN.toString())) {
 			sql += "and IS_ADMIN = 1";
 		} else {
 			sql += "and IS_ADMIN = 0";
 		}
-		
+
 		PreparedStatement statement = getPreparedStatement(sql);
 		statement.setString(1, userName);
 		statement.setString(2, password);
-		
+
 		ResultSet resultSet = statement.executeQuery();
-		
+
 		if (resultSet.next()) {
 			return createUser(resultSet);
 		}
 		return null;
 	}
-	
+
 	private User createUser(ResultSet resultSet) throws SQLException {
 		String name = resultSet.getString("NAME");
 		String lastname = resultSet.getString("LASTNAME");
@@ -84,7 +82,7 @@ public class UserActions extends AbstractTable implements IUserActions {
 		String phoneNumber = resultSet.getString("PHONE_NUMBER");
 		Date birthday = resultSet.getDate("BIRTHDAY");
 		char gender = resultSet.getString("GENDER").charAt(0);
-		
+
 		return new User(name, lastname, username, null, email, phoneNumber, birthday, gender);
 	}
 
