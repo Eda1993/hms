@@ -86,4 +86,17 @@ public class UserActions extends AbstractTable implements IUserActions {
 		return new User(name, lastname, username, null, email, phoneNumber, birthday, gender);
 	}
 
+	@Override
+	public void requestRoom(int id) throws SQLException {
+
+		String sql = "UPDATE room SET REQUESTED = 1 WHERE Id = ?";
+
+		PreparedStatement statement = getPreparedStatement(sql);
+
+		statement.setInt(1, id);
+
+		statement.executeUpdate();
+
+	}
+
 }

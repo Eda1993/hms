@@ -15,7 +15,7 @@
 	<h1>Welcome, ${user.name}</h1>
 
 	<div>
-		<form action="roomAlloc.jsp" method="post">
+		<form action="ShowRoom">
 			<input type="submit" value="Alloc Room">
 		</form>
 	</div>

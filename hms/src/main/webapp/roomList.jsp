@@ -1,3 +1,4 @@
+<%@page import="hms.admin.models.Room"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -8,8 +9,8 @@
 <%@ page isELIgnored="false"%>
 </head>
 <body>
-	<jsp:include page="afterLogin.jsp" /><br> Totali i dhomave:
-	${totalRooms}
+	<jsp:include page="afterLogin.jsp" /><br> 
+	Totali i dhomave:   ${totalRooms}
 	<br>
 
 	<h2>Lista e Dhomave</h2>
@@ -25,6 +26,8 @@
 			<th>Kondicioner</th>
 			<th>Internet</th>
 			<th>Rezervuar</th>
+			<th>Requested</th>
+			<th>Veprime</th>
 		</tr>
 
 		<c:forEach var="i" items="${rooms}">
@@ -36,7 +39,8 @@
 				<td>${i.airConditioner}</td>
 				<td>${i.internet}</td>
 				<td>${i.occupied}</td>
-				<td> <a href = "editRoom.jsp?Id=${i.id}">Edit</a></td>
+				<td>${i.requested}</td>
+				<td><a href="editRoom.jsp?Id=${i.id}">Edit</a></td>
 			</tr>
 
 		</c:forEach>

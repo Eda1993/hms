@@ -39,8 +39,9 @@ public class AdminActions extends AbstractTable implements IAdminActions {
 		int airConditioner = Integer.parseInt(resultSet.getString("AIR_CONDITIONER"));
 		int internet = Integer.parseInt(resultSet.getString("INTERNET"));
 		int occupied = resultSet.getInt("OCCUPIED");
+		int requested = resultSet.getInt("REQUESTED");
 
-		return new Room(id, kati, nrPeople, cmimi, airConditioner, internet, occupied);
+		return new Room(id, kati, nrPeople, cmimi, airConditioner, internet, occupied, requested);
 	}
 
 	@Override
@@ -50,14 +51,14 @@ public class AdminActions extends AbstractTable implements IAdminActions {
 
 		PreparedStatement pst1 = getPreparedStatement("select max(id)+1 from room");
 		ResultSet rs = pst1.executeQuery();
-		String user_id = "";
+		String userId = "";
 		while (rs.next()) {
-			user_id = rs.getString(1);
+			userId = rs.getString(1);
 		}
 
 		PreparedStatement statement = getPreparedStatement(sql);
 
-		statement.setString(1, user_id.toString());
+		statement.setString(1, userId.toString());
 		statement.setInt(2, room.getKati());
 		statement.setInt(3, room.getNrPeople());
 		statement.setInt(4, room.getCmimi());
@@ -74,7 +75,6 @@ public class AdminActions extends AbstractTable implements IAdminActions {
 
 		PreparedStatement statement = getPreparedStatement(sql);
 
-		// statement.setString(1, user_id.toString());
 		statement.setInt(1, room.getKati());
 		statement.setInt(2, room.getNrPeople());
 		statement.setInt(3, room.getCmimi());
@@ -84,6 +84,24 @@ public class AdminActions extends AbstractTable implements IAdminActions {
 		statement.setInt(7, room.getId());
 
 		return statement.executeUpdate();
+	}
+
+	@Override
+	public List<Room> getRooms() throws SQLException {
+		List<Room> rooms = new ArrayList<>();
+
+		String sql = "Select * from room WHERE OCCUPIED = 0 AND REQUESTED = 0";
+
+		Statement statement = getPreparedStatement(sql);
+		ResultSet resultSet = statement.executeQuery(sql);
+
+		while (resultSet.next()) {
+
+			Room room = createRoom(resultSet);
+			rooms.add(room);
+		}
+
+		return rooms;
 	}
 
 }

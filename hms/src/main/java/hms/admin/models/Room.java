@@ -1,7 +1,7 @@
 package hms.admin.models;
 
 public class Room {
-	
+
 	private int id;
 	private int kati;
 	private int nrPeople;
@@ -9,7 +9,7 @@ public class Room {
 	private int airConditioner;
 	private int internet;
 	private int occupied;
-
+	private int requested;
 
 	public Room() {
 
@@ -24,9 +24,10 @@ public class Room {
 		this.internet = internet;
 	}
 
-	public Room(int id, int kati, int nrPeople, int cmimi, int airConditioner, int internet, int occupied) {
+	public Room(int id, int kati, int nrPeople, int cmimi, int airConditioner, int internet, int occupied, int requested) {
 		this(id, kati, nrPeople, cmimi, airConditioner, internet);
 		this.occupied = occupied;
+		this.requested = requested;
 	}
 
 	public int getId() {
@@ -36,7 +37,7 @@ public class Room {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public int getKati() {
 		return kati;
 	}
@@ -83,6 +84,14 @@ public class Room {
 
 	public void setOccupied(int occupied) {
 		this.occupied = occupied;
+	}
+
+	public int getRequested() {
+		return requested;
+	}
+
+	public void setRequested(int requested) {
+		this.requested = requested;
 	}
 
 	@Override

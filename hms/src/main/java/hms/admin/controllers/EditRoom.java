@@ -29,7 +29,7 @@ public class EditRoom extends HttpServlet {
 		doGet(request, response);
 
 		Room room = new Room();
-		//room.setId(Integer.parseInt(request.getParameter("id")));
+		room.setId(Integer.parseInt(request.getParameter("id")));
 		room.setKati(Integer.parseInt(request.getParameter("kati")));
 		room.setNrPeople(Integer.parseInt(request.getParameter("nrPeople")));
 		room.setCmimi(Integer.parseInt(request.getParameter("cmimi")));

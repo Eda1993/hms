@@ -10,7 +10,7 @@
 
 <h2>Plotesoni te dhenat</h2>
 
-	<form action="EditRoom" method="post">
+	<form action="EditRoom?id=<%=request.getParameter("Id")%>" method="post">
 
 		Kati i banimit: <input type="number" name="kati"><br>
 		Kapaciteti i personave: <input type="number" name="nrPeople"><br>

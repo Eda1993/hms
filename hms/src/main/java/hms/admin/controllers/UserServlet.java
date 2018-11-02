@@ -1,4 +1,4 @@
-package hms.user.controllers;
+package hms.admin.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;

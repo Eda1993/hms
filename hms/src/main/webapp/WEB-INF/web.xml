@@ -46,6 +46,18 @@
   	<description></description>
   	<servlet-class>hms.admin.controllers.EditRoom</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ShowRoom</servlet-name>
+  	<display-name>ShowRoom</display-name>
+  	<description></description>
+  	<servlet-class>hms.admin.controllers.ShowRoom</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AllocRoom</servlet-name>
+  	<display-name>AllocRoom</display-name>
+  	<description></description>
+  	<servlet-class>hms.user.controllers.AllocRoom</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>UserServlet</servlet-name>
   	<url-pattern>/user</url-pattern>
@@ -73,5 +85,13 @@
   <servlet-mapping>
   	<servlet-name>EditRoom</servlet-name>
   	<url-pattern>/EditRoom</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ShowRoom</servlet-name>
+  	<url-pattern>/ShowRoom</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AllocRoom</servlet-name>
+  	<url-pattern>/AllocRoom</url-pattern>
   </servlet-mapping>
 </web-app>
