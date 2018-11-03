@@ -92,11 +92,11 @@ public class UserActions extends AbstractTable implements IUserActions {
 		String sql = "UPDATE room SET REQUESTED = 1 WHERE Id = ?";
 
 		PreparedStatement statement = getPreparedStatement(sql);
-
 		statement.setInt(1, id);
-
 		statement.executeUpdate();
 
 	}
+	
+	
 
 }

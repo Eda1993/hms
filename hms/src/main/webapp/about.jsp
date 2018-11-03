@@ -10,25 +10,25 @@
 	<jsp:include page="header.jsp" />
 
 	<div>
-		<img alt="photo" src="images/f.jpg" align="middle">
+		<img alt="photo" src="images/f.jpg" align="left" width="800"
+			height="450">
 
 	</div>
-
-	<h1 align="center">About US</h1>
-	<p>The Hostel is situated in fully renovated historical building
-		centrally located near the very heart of the old town of Zadar. Within
-		5 min walk you can enjoy sunbathing in public beach Kolovare, have fun
-		in the most popular clubs and bars or take care of your daily needs
-		(bank, exchange office, shopping mall, grocery market...). Zadar
-		Airport is 10 km away, Ferry port is situated in old town, only 10 min
-		walk away as well as the main bus station. If you`re looking for quiet
-		location in a busy and noisy city, The Hostel is the right place for
-		you. We offer 3 deluxe private rooms and 2 premium dorms. You can
-		relax at the soft duvets and big comfy pillows while enjoying your
-		Nescafe coffee for free! We are so looking forward to meet you at our
-		lovely place!</p>
 	<pre>
- 
- </pre>
+	        <h1 align="center">About US</h1>
+	   		<p>         We are committed to provide quality services and hospitality,
+		offering comfort and well-being for allguests. Through our values:
+		honesty, respect, and trust, we commit ourselves to satisfying your
+		needs to help make your trip to Tirana a memorable one. Our unique
+		location, in the heart of Tirana, with 52 spacious and luxurious
+		rooms, professional and welcoming staff, and with our commitment to
+		serve the guests, make the Sirius Premier Hotel the right choice for
+		you during your stay in Tirana. The Sirius Premier Hotel has been
+		structured to give you a feel of a home. Its business but yet homely
+		and friendly ambience is complimented by our staff. We are looking
+		forward to welcoming you at your home away from home, the Sirius
+		Premier Hotel</p>
+</pre>
+
 </body>
 </html>

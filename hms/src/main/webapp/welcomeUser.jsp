@@ -9,22 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="afterLogin.jsp" />
+	<jsp:include page="userLogin.jsp" />
 
-
-	<h1>Welcome, ${user.name}</h1>
-
-	<div>
-		<form action="ShowRoom">
-			<input type="submit" value="Alloc Room">
-		</form>
-	</div>
-
-	<div>
-		<form action="response.jsp" method="post">
-			<input type="submit" value="See Response">
-		</form>
-	</div>
+	<h1 align="center">Welcome, ${user.name}</h1>
+	
+	
 
 </body>
 </html>

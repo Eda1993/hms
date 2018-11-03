@@ -7,10 +7,27 @@
 <head>
 <meta charset="ISO-8859-1">
 <%@ page isELIgnored="false"%>
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+</style>
 </head>
 <body>
-	<jsp:include page="afterLogin.jsp" /><br> 
-	Totali i dhomave:   ${totalRooms}
+	<jsp:include page="adminLogin.jsp" /><br> Totali i dhomave:
+	${totalRooms}
 	<br>
 
 	<h2>Lista e Dhomave</h2>
@@ -49,9 +66,10 @@
 	<br>
 
 	<br>
-	<form action="addRoom.jsp" method="post">
-		<input type="submit" value="Add Room">
-	</form>
-
+	<div align="center">
+		<form action="addRoom.jsp" method="post">
+			<input type="submit" value="Add Room">
+		</form>
+	</div>
 </body>
 </html>

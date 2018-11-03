@@ -36,9 +36,11 @@ body {
 <body>
 
 <div class="topnav">
-  <a class="active" href="welcomeUser.jsp">Home</a>
+  <a class="active" href="UserServlet">Home</a>
+  <a class="active" href="AdminController">View Rooms</a>
   
-  <a href="login.jsp">Logout</a>
+  <a class="active" href="Requests">View Requests</a>
+  <a class="active" href="login.jsp">Logout</a>
 </div>
 
 </body>

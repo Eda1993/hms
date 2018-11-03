@@ -58,6 +58,18 @@
   	<description></description>
   	<servlet-class>hms.user.controllers.AllocRoom</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<display-name>Logout</display-name>
+  	<description></description>
+  	<servlet-class>hms.user.controllers.Logout</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Requests</servlet-name>
+  	<display-name>Requests</display-name>
+  	<description></description>
+  	<servlet-class>hms.admin.controllers.Requests</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>UserServlet</servlet-name>
   	<url-pattern>/user</url-pattern>
@@ -93,5 +105,13 @@
   <servlet-mapping>
   	<servlet-name>AllocRoom</servlet-name>
   	<url-pattern>/AllocRoom</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Requests</servlet-name>
+  	<url-pattern>/Requests</url-pattern>
   </servlet-mapping>
 </web-app>

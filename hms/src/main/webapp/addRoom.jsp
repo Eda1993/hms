@@ -7,22 +7,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<h2>Plotesoni te dhenat</h2>
+	<jsp:include page="adminLogin.jsp" />
+	<link rel="stylesheet" href="css/reg.css" />
 
 	<form action="AddRoom" method="post">
+		<fieldset>
 
-		Kati i banimit: <input type="number" name="kati"><br>
-		Kapaciteti i personave: <input type="number" name="nrPeople"><br>
-		Çmimi per nate: <input type="int" name="cmimi"><br>
-		<!--Kondicioner: <input type="checkbox" checked="checked" name="ac" value="ac"/><br>  -->
-		<!-- Internet: <input type="checkbox" checked="checked" name="net" value="net"/><br> -->
-		
-		Kondicioner: <input type="number" name="ac"><br>
-		Internet: <input type="number" name="net"><br>
-		
-		<input type="submit" value="Add">
+			<legend align="top">Plotesoni te dhenat</legend>
 
+			Kati i banimit: <input type="number" name="kati"><br>
+			Kapaciteti i personave: <input type="number" name="nrPeople"><br>
+			Çmimi per nate: <input type="int" name="cmimi"><br>
+			<!--Kondicioner: <input type="checkbox" checked="checked" name="ac" value="ac"/><br>  -->
+			<!-- Internet: <input type="checkbox" checked="checked" name="net" value="net"/><br> -->
+
+			Kondicioner: <input type="number" name="ac"><br>
+			Internet: <input type="number" name="net"><br> <input
+				type="submit" value="Add">
+		</fieldset>
 	</form>
 </body>
 </html>

@@ -10,4 +10,5 @@ public interface IUserActions {
 	int insertUser(User user) throws SQLException;
 	User login(String userName, String password, String type) throws SQLException;
 	void requestRoom(int id) throws SQLException;
+	
 }

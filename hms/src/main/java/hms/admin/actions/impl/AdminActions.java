@@ -104,4 +104,22 @@ public class AdminActions extends AbstractTable implements IAdminActions {
 		return rooms;
 	}
 
+	@Override
+	public List<Room> getRequests() throws SQLException {
+		List<Room> rooms = new ArrayList<>();
+
+		String sql = "Select * from room WHERE REQUESTED = 1";
+		
+		Statement statement = getPreparedStatement(sql);
+		ResultSet resultSet = statement.executeQuery(sql);
+		
+		while (resultSet.next()) {
+
+			Room room = createRoom(resultSet);
+			rooms.add(room);
+		}
+
+		return rooms;
+	}
+
 }

@@ -5,12 +5,30 @@
 <html>
 <head>
 <%@ page isELIgnored="false"%>
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+</style>
 </head>
 <body>
 
-	<jsp:include page="afterLogin.jsp" />
-	<h2>Welcome, ${user.name}</h2>
+	<jsp:include page="adminLogin.jsp" />
+	<h2 align="center">Welcome, ${user.name}</h2>
 
+	<h3>List of registered people</h3>
 
 	<table border="1">
 
@@ -18,7 +36,6 @@
 			<th>Name</th>
 			<th>Last Name</th>
 			<th>Username</th>
-			<th>Password</th>
 			<th>Email</th>
 			<th>Phone Number</th>
 			<th>Birthday</th>
@@ -30,7 +47,6 @@
 				<td>${i.name}</td>
 				<td>${i.lastname}</td>
 				<td>${i.username}</td>
-				<td>${i.password}</td>
 				<td>${i.email}</td>
 				<td>${i.phoneNumber}</td>
 				<td>${i.birthday}</td>
@@ -40,19 +56,6 @@
 
 	</table>
 	<pre></pre>
-	<pre>
-		<div >
-			<form action="AdminController">
-				<input type="submit" value="View Rooms">
-			</form>
-		</div>
-	
-		<div>
-			<form action="Requests">
-				<input type="submit" value="View Requests">
-			</form>
-	
-		</div>
-	</pre>
+
 </body>
 </html>

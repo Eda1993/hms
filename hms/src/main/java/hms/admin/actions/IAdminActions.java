@@ -10,4 +10,5 @@ public interface IAdminActions {
 	int insertRoom(Room room)throws SQLException;
 	int editRoom(Room room)throws SQLException;
 	List<Room> getRooms() throws SQLException; 
+	List<Room> getRequests() throws SQLException;
 }

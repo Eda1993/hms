@@ -3,7 +3,6 @@ package hms.user.controllers;
 import static hms.commons.UserType.ADMIN;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -33,7 +32,7 @@ public class LoginController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 
-		PrintWriter out = response.getWriter();
+		//PrintWriter out = response.getWriter();
 
 		String type = request.getParameter("loginSelector");
 		String username = request.getParameter("username");
@@ -54,7 +53,8 @@ public class LoginController extends HttpServlet {
 				}
 
 			} else {
-				out.println("Kredencialet jane gabim");
+				
+				response.sendRedirect("login.jsp");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

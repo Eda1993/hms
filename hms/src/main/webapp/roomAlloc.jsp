@@ -8,10 +8,11 @@
 <%@ page isELIgnored="false"%>
 </head>
 <body>
-	<jsp:include page="afterLogin.jsp" /><br>
+	<jsp:include page="userLogin.jsp" /><br>
 	<br>
-	<h2>Lista e Dhomave</h2>
+	<h2 align="center">Lista e Dhomave te Lira</h2>
 	<br>
+<div align="center">
 <form method="post">
 	<table border="1">
 
@@ -34,6 +35,6 @@
 				</tr>
 
 			</c:forEach>
-	</table></form>
+	</table></form></div>
 </body>
 </html>
