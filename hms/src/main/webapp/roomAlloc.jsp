@@ -17,6 +17,7 @@
 	<table border="1">
 
 		<tr>
+			<th>Numri i dhomes</th>
 			<th>Kati i Banimit</th>
 			<th>Kapaciteti i Personave</th>
 			<th>Çmimi per nate</th>
@@ -25,6 +26,7 @@
 
 			<c:forEach var="i" items="${rooms}">
 				<tr>
+					<td>${i.roomNumber}</td>
 					<td>${i.kati}</td>
 					<td>${i.nrPeople}</td>
 					<td>${i.cmimi}</td>

@@ -37,9 +37,9 @@ body {
 
 <div class="topnav">
   <a class="active" href="welcomeUser.jsp">Home</a>
-  <a class="active" href="ShowRoom">Alloc Room</a>
+  <a class="active" href="ShowRoom">Allocate Room</a>
   
-  <a class="active" href="response.jsp">See Response</a>
+  <a class="active" href="ResponseController">See Response</a>
   <a class="active" href="login.jsp">Logout</a>
 </div>
 

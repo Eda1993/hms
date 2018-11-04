@@ -3,20 +3,22 @@ package hms.admin.models;
 public class Room {
 
 	private int id;
+	private int roomNumber;
 	private int kati;
 	private int nrPeople;
 	private int cmimi;
 	private int airConditioner;
 	private int internet;
 	private int occupied;
-	private int requested;
+	private int requestedBy;
 
 	public Room() {
 
 	}
 
-	public Room(int id, int kati, int nrPeople, int cmimi, int airConditioner, int internet) {
+	public Room(int id, int roomNumber, int kati, int nrPeople, int cmimi, int airConditioner, int internet) {
 		this.id = id;
+		this.roomNumber = roomNumber;
 		this.kati = kati;
 		this.nrPeople = nrPeople;
 		this.cmimi = cmimi;
@@ -24,10 +26,11 @@ public class Room {
 		this.internet = internet;
 	}
 
-	public Room(int id, int kati, int nrPeople, int cmimi, int airConditioner, int internet, int occupied, int requested) {
-		this(id, kati, nrPeople, cmimi, airConditioner, internet);
+	public Room(int id, int roomNumber, int kati, int nrPeople, int cmimi, int airConditioner, int internet,
+			int occupied, int requestedBy) {
+		this(id, roomNumber, kati, nrPeople, cmimi, airConditioner, internet);
 		this.occupied = occupied;
-		this.requested = requested;
+		this.requestedBy = requestedBy;
 	}
 
 	public int getId() {
@@ -36,6 +39,14 @@ public class Room {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getRoomNumber() {
+		return roomNumber;
+	}
+
+	public void setRoomNumber(int roomNumber) {
+		this.roomNumber = roomNumber;
 	}
 
 	public int getKati() {
@@ -86,12 +97,12 @@ public class Room {
 		this.occupied = occupied;
 	}
 
-	public int getRequested() {
-		return requested;
+	public int getRequestedBy() {
+		return requestedBy;
 	}
 
-	public void setRequested(int requested) {
-		this.requested = requested;
+	public void setRequestedBy(int requestedBy) {
+		this.requestedBy = requestedBy;
 	}
 
 	@Override

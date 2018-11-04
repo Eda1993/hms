@@ -36,27 +36,25 @@ tr:nth-child(even) {
 	<table border="1">
 
 		<tr>
-			<th>ID</th>
+			<th>Numri i dhomes</th>
 			<th>Kati i Banimit</th>
 			<th>Kapaciteti i Personave</th>
 			<th>Çmimi per nate</th>
 			<th>Kondicioner</th>
 			<th>Internet</th>
 			<th>Rezervuar</th>
-			<th>Requested</th>
 			<th>Veprime</th>
 		</tr>
 
 		<c:forEach var="i" items="${rooms}">
 			<tr>
-				<td>${i.id}</td>
+				<td>${i.roomNumber}</td>
 				<td>${i.kati}</td>
 				<td>${i.nrPeople}</td>
 				<td>${i.cmimi}</td>
 				<td>${i.airConditioner}</td>
 				<td>${i.internet}</td>
 				<td>${i.occupied}</td>
-				<td>${i.requested}</td>
 				<td><a href="editRoom.jsp?Id=${i.id}">Edit</a></td>
 			</tr>
 

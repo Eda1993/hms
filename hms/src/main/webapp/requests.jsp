@@ -17,24 +17,25 @@
 			<table border="1">
 
 				<tr>
-					<th>ID</th>
+					<th>Numri i dhomes</th>
 					<th>Kati i Banimit</th>
 					<th>Kapaciteti i Personave</th>
 					<th>Çmimi per nate</th>
 					<th>Kondicioner</th>
 					<th>Internet</th>
+					<th>Kerkuesi</th>
 
 					<c:forEach var="i" items="${requests}">
 						<tr>
-							<td>${i.id}</td>
+							<td>${i.roomNumber}</td>
 							<td>${i.kati}</td>
 							<td>${i.nrPeople}</td>
 							<td>${i.cmimi}</td>
 							<td>${i.airConditioner}</td>
 							<td>${i.internet}</td>
+							<td>${i.userName} ${i.userSurname}</td>
 
-							<td><a href="HandleRequets?Id=${i.id}">Prano</a></td>
-							<td><a href="HandleRequets?Id=${i.id}">Refuzo</a></td>
+							<td><a href="HandleRequests?Id=${i.id}&rn=${i.roomNumber}">Prano</a></td>
 						</tr>
 
 					</c:forEach>

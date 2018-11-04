@@ -8,13 +8,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import hms.commons.AbstractTable;
 import hms.user.actions.IUserActions;
 import hms.user.models.User;
 
 public class UserActions extends AbstractTable implements IUserActions {
+	public static final String PENDING = "PENDING";
+	public static final String ACCEPTED = 	"ACCEPTED";
+	public static final String REJECTED = "REJECTED";
 
 	@Override
 	public List<User> getAllUsers() throws SQLException {
@@ -73,8 +78,46 @@ public class UserActions extends AbstractTable implements IUserActions {
 		}
 		return null;
 	}
+	
+	@Override
+	public Map<String, List<String>> getResposes(int userId) throws SQLException {
+		Map<String, List<String>> messages = new HashMap<>();
+		List<String> pendingRequest = new ArrayList<>();
+		List<String> acceptedRequests = new ArrayList<>();
+		List<String> rejectedRequests = new ArrayList<>();
+		
+		String sql = "select * from room where REQUESTED_BY = ?";
+		PreparedStatement statement = getPreparedStatement(sql);
+		statement.setInt(1, userId);
+		ResultSet resultSet = statement.executeQuery();
+		
+		while (resultSet.next()) {
+			int occupied = resultSet.getInt("OCCUPIED");
+			int roomNumber = resultSet.getInt("ROOM_NUMBER");
+			
+			if (occupied == 0) {
+				pendingRequest.add(formatMessage(roomNumber, PENDING));
+			} else if (occupied == 1) {
+				acceptedRequests.add(formatMessage(roomNumber, ACCEPTED));
+			} else {
+				rejectedRequests.add(formatMessage(roomNumber, REJECTED));
+			}
+		}
+		
+		messages.put(ACCEPTED, acceptedRequests);
+		messages.put(PENDING, pendingRequest);
+		messages.put(REJECTED, rejectedRequests);
+		
+		return messages;
+	}
+	
+	private String formatMessage(int roomNumber, String status) {
+		String msg = "Dhoma me numer " + roomNumber + " ka statusin " + status; 
+		return msg;
+	}
 
 	private User createUser(ResultSet resultSet) throws SQLException {
+		int id = resultSet.getInt("ID");
 		String name = resultSet.getString("NAME");
 		String lastname = resultSet.getString("LASTNAME");
 		String username = resultSet.getString("USERNAME");
@@ -83,20 +126,8 @@ public class UserActions extends AbstractTable implements IUserActions {
 		Date birthday = resultSet.getDate("BIRTHDAY");
 		char gender = resultSet.getString("GENDER").charAt(0);
 
-		return new User(name, lastname, username, null, email, phoneNumber, birthday, gender);
+		User user = new User(name, lastname, username, null, email, phoneNumber, birthday, gender);
+		user.setId(id);
+		return user;
 	}
-
-	@Override
-	public void requestRoom(int id) throws SQLException {
-
-		String sql = "UPDATE room SET REQUESTED = 1 WHERE Id = ?";
-
-		PreparedStatement statement = getPreparedStatement(sql);
-		statement.setInt(1, id);
-		statement.executeUpdate();
-
-	}
-	
-	
-
 }
