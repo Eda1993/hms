@@ -22,7 +22,7 @@
 
 <div id="1">
 
-	<h1 align="center">Sirius Premium Hotel</h1>
+	<h1 align="center">5 STARS Premium Hotel</h1>
 	<div id="3">
 		<img alt="photo" src="images/welcome.jpeg" width="800" height="450"
 			align="left">

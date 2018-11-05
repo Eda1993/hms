@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,15 +43,17 @@ public class UserRegistration extends HttpServlet {
 
 		try {
 			actions.insertUser(user);
+			request.setAttribute("user", user);
+
+			RequestDispatcher rd = request.getRequestDispatcher("welcomeUser.jsp");
+			rd.forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		//HttpSession session = request.getSession();
-		request.setAttribute("username", user.getUsername());
-
-		response.sendRedirect("welcomeUser.jsp");
+		
 	}
 
 }

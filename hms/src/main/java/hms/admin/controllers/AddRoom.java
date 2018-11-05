@@ -26,12 +26,15 @@ public class AddRoom extends HttpServlet {
 	}
 
 
+	/* (non-Javadoc)
+	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
 		Room room = new Room();
-		
+		room.setRoomNumber(Integer.parseInt(request.getParameter("roomNr")));
 		room.setKati(Integer.parseInt(request.getParameter("kati")));
 		room.setNrPeople(Integer.parseInt(request.getParameter("nrPeople")));
 		room.setCmimi(Integer.parseInt(request.getParameter("cmimi")));

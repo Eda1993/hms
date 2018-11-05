@@ -82,6 +82,12 @@
   	<description></description>
   	<servlet-class>hms.user.controllers.ResponseController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>FreeRoom</servlet-name>
+  	<display-name>FreeRoom</display-name>
+  	<description></description>
+  	<servlet-class>hms.admin.controllers.FreeRoom</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>UserServlet</servlet-name>
   	<url-pattern>/user</url-pattern>
@@ -133,5 +139,9 @@
   <servlet-mapping>
   	<servlet-name>ResponseController</servlet-name>
   	<url-pattern>/ResponseController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FreeRoom</servlet-name>
+  	<url-pattern>/FreeRoom</url-pattern>
   </servlet-mapping>
 </web-app>

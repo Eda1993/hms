@@ -56,6 +56,7 @@ tr:nth-child(even) {
 				<td>${i.internet}</td>
 				<td>${i.occupied}</td>
 				<td><a href="editRoom.jsp?Id=${i.id}">Edit</a></td>
+				<td><a href="FreeRoom?Id=${i.id}&rn=${i.roomNumber}">Free</a></td>
 			</tr>
 
 		</c:forEach>

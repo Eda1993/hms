@@ -37,8 +37,8 @@ public class UserActions extends AbstractTable implements IUserActions {
 
 	@Override
 	public int insertUser(User user) throws SQLException {
-		String sql = "insert into user (NAME, LASTNAME, USERNAME, PASSWORD, EMAIL, PHONE_NUMBER, BIRTHDAY, GENDER, CREATED_AT, IS_ADMIN, PENDING_REQUEST) values "
-				+ "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into user (NAME, LASTNAME, USERNAME, PASSWORD, EMAIL, PHONE_NUMBER, BIRTHDAY, GENDER, CREATED_AT, IS_ADMIN) values "
+				+ "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		PreparedStatement statement = getPreparedStatement(sql);
 
@@ -52,7 +52,6 @@ public class UserActions extends AbstractTable implements IUserActions {
 		statement.setString(8, String.valueOf(user.getGender()));
 		statement.setTimestamp(9, java.sql.Timestamp.from(java.time.Instant.now()));
 		statement.setInt(10, 0);
-		statement.setInt(11, 0);
 
 		return statement.executeUpdate();
 	}

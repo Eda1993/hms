@@ -14,7 +14,7 @@
 		<fieldset>
 
 			<legend align="top">Plotesoni te dhenat</legend>
-
+			Numri i dhomes: <input type="number" name="roomNr"><br>
 			Kati i banimit: <input type="number" name="kati"><br>
 			Kapaciteti i personave: <input type="number" name="nrPeople"><br>
 			Çmimi per nate: <input type="int" name="cmimi"><br>

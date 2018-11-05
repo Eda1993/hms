@@ -15,4 +15,5 @@ public interface IAdminActions {
 	void requestRoom(int roomId, int userId) throws SQLException;
 	int insertRoom(Room room, int requestedBy)throws SQLException;
 	void acceptRequest(int roomId, int roomNr) throws SQLException;
+	void freeRoom(int roomId, int roomNr) throws SQLException;
 }

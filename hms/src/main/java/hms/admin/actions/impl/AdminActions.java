@@ -18,7 +18,7 @@ public class AdminActions extends AbstractTable implements IAdminActions {
 	public List<Room> getAllRooms() throws SQLException {
 		List<Room> rooms = new ArrayList<>();
 
-		String sql = "Select * from room group by room_number";
+		String sql = "Select * from room  where occupied <> -1 group by room_number";
 
 		Statement statement = getPreparedStatement(sql);
 		ResultSet resultSet = statement.executeQuery(sql);
@@ -134,19 +134,34 @@ public class AdminActions extends AbstractTable implements IAdminActions {
 		PreparedStatement statement = createStatementToInsertRoom(room, sql, requestedBy);
 		return statement.executeUpdate();
 	}
-	
+
 	@Override
 	public void acceptRequest(int roomId, int roomNr) throws SQLException {
 		String updateRejected = "update room set OCCUPIED = -1 where ROOM_NUMBER = ?";
 		PreparedStatement statement = getPreparedStatement(updateRejected);
 		statement.setInt(1, roomNr);
 		statement.executeUpdate();
-		
+
 		String updateAccepted = "update room set OCCUPIED = 1 where Id = ?";
 		PreparedStatement statementAccepted = getPreparedStatement(updateAccepted);
 		statementAccepted.setInt(1, roomId);
 		statementAccepted.executeUpdate();
-		
+
+	}
+
+	@Override
+	public void freeRoom(int roomId, int roomNr) throws SQLException {
+		String updateOcc = "update room set OCCUPIED = 0, REQUESTED_BY = NULL where ROOM_NUMBER = ?";
+		PreparedStatement statement = getPreparedStatement(updateOcc);
+		statement.setInt(1, roomNr);
+		statement.executeUpdate();
+
+		String sqlDel = "delete from room where ROOM_NUMBER = ? and Id <> ?";
+		PreparedStatement statementAccepted = getPreparedStatement(sqlDel);
+		statementAccepted.setInt(1, roomNr);
+		statementAccepted.setInt(2, roomId);
+		statementAccepted.executeUpdate();
+
 	}
 
 	private Room isRoomRequested(int roomId) throws SQLException {
@@ -181,4 +196,5 @@ public class AdminActions extends AbstractTable implements IAdminActions {
 		statement.setInt(8, requesteBy);
 		return statement;
 	}
+
 }

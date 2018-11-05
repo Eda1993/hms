@@ -16,7 +16,7 @@
 	</div>
 	<pre>
 	        <h1 align="center">About US</h1>
-	   		<p>         We are committed to provide quality services and hospitality,
+	    <p>                We are committed to provide quality services and hospitality,
 		offering comfort and well-being for allguests. Through our values:
 		honesty, respect, and trust, we commit ourselves to satisfying your
 		needs to help make your trip to Tirana a memorable one. Our unique
